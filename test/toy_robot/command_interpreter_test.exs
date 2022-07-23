@@ -26,7 +26,7 @@ defmodule ToyRobot.CommandInterpreterTest do
              {:invalid, "EXTERMINATE"},
              {:invalid, "PLACE 1, 2, NORTH"},
              {:invalid, "move"},
-             {:invalid, "tUrN_LEFT"},
+             {:invalid, "tUrN_LEFT"}
            ]
   end
 end
