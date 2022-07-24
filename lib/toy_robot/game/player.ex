@@ -9,8 +9,12 @@ defmodule ToyRobot.Game.Player do
     GenServer.start(__MODULE__, position)
   end
 
-  def start_link(position) do
-    GenServer.start_link(__MODULE__, position)
+  def start_link([robot: robot, name: name]) do
+    GenServer.start_link(__MODULE__, robot, name: process_name(name))
+  end
+
+  def process_name(name) do
+    {:via, Registry, {ToyRobot.Game.PlayerRegistry, name}}
   end
 
   def move(player) do
